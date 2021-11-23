@@ -1,17 +1,14 @@
 version: "3"
 
 services:
-  teste-postgres-compose:
+  db:
     image: postgres
     environment:
       POSTGRES_PASSWORD: "Postgres2021!"
     ports:
-      - "15432:5432"
+      - "5432:5432"
     volumes:
       - C:/Users/Rodolfo Henrique/Documents/estudos/postgres:/var/lib/postgresql/data
-    networks:
-      - postgres-compose-network
-
   teste-pgadmin-compose:
     image: dpage/pgadmin4
     environment:
@@ -20,7 +17,7 @@ services:
     ports:
       - "16543:80"
     depends_on:
-      - teste-postgres-compose
+      - db
     networks:
       - postgres-compose-network
 
