@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "jest --no-cache --runInBand --forceExit --detectOpenHandles --watchAll"
+    "test": "jest --no-cache --runInBand --forceExit --detectOpenHandles --watchAll",
+    "pre-commit": "jest --no-cache --runInBand --forceExit --detectOpenHandles"
   },
   "repository": {
     "type": "git",
@@ -35,7 +36,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm test"
+      "pre-commit": "npm run pre-commit"
     }
   }
 }
