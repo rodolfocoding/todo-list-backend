@@ -1,5 +1,6 @@
 const app = require("../../index");
 const UserRepository = require("../repository/UserRepository");
+const request = require("supertest");
 
 describe("Unity test User repository", () => {
   afterAll(() => {
@@ -19,9 +20,14 @@ describe("Unity test User repository", () => {
     ];
     // Act
     // Executa a ação que será testada
-    const users = await UserRepository.getAll();
+
+    const response = await request(app).get(
+      "/users",
+      async () => await UserRepository.getAll()
+    );
 
     //Assert
-    expect(Object.keys(users[0]).sort()).toEqual(mockProperties.sort());
+    expect(response.status).toBe(200);
+    expect(Object.keys(response.body[0]).sort()).toEqual(mockProperties.sort());
   });
 });
