@@ -2,9 +2,10 @@
   "name": "todo-list-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "test": "jest --no-cache --runInBand --forceExit --detectOpenHandles --watchAll"
   },
   "repository": {
     "type": "git",
@@ -20,10 +21,15 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "get-port": "^6.0.0",
     "pg": "^8.7.1",
-    "sequelize": "^6.12.0-alpha.1"
+    "sequelize": "^6.12.0-alpha.1",
+    "sinon": "^12.0.1"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.3.0"
+    "jest": "^27.4.3",
+    "nodemon": "^2.0.15",
+    "sequelize-cli": "^6.3.0",
+    "supertest": "^6.1.6"
   }
 }
