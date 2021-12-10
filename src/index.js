@@ -7,9 +7,9 @@ const app = express();
 
 const PORT = process.env.PORT;
 
-app.use(routes);
-
 app.use(express.json());
+
+app.use(routes);
 
 const server = app.listen(PORT, () =>
   console.log(`App Started on Port ${PORT}!`)
