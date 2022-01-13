@@ -1,7 +1,7 @@
-const app = require("../../index");
-const UserRepository = require("../repository/UserRepository");
+const app = require("../../../index");
+const UserRepository = require("../../repository/UserRepository");
 const request = require("supertest");
-const { generateHash, decrypt } = require("../helpers/crypt");
+const { generateHash, decrypt } = require("../../helpers/crypt");
 
 describe("Unity test User repository", () => {
   afterAll(() => {
